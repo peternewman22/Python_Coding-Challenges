@@ -6,4 +6,14 @@ def is_palindrome(w: str) -> bool:
     w_mirror = "".join(reversed(w_clean))
     return w_clean == w_mirror
 
-print(is_palindrome("Eva, can I see bees in a cave?"))
+# print(is_palindrome("Eva, can I see bees in a cave?"))
+
+# now using regular expressions to just pull all the lower case letters out...
+import re
+
+def is_palindrome_regular_expressions(w: str) -> bool:
+    forwards = "".join(re.findall('[a-z]+',w.lower()))
+    backwards = forwards[::-1]
+    return forwards == backwards
+
+print(is_palindrome_regular_expressions("Eva, can I see bees in a cave?"))
