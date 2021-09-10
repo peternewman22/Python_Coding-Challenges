@@ -21,6 +21,9 @@ keyboard.wait('enter')
 end_time = datetime.now()
 duration = end_time - start_time
 error = duration - timedelta(seconds=wait_time)
-fast_or_slow = "fast" if error.seconds < 0 else "slow"
+fast_or_slow = "fast" if error.seconds > 0 else "slow"
 percentage_error = error.total_seconds()/wait_time*100
 print(f"You waited {duration.total_seconds()} seconds which was {abs(error.total_seconds())}s ({percentage_error}%) too {fast_or_slow}!")
+
+
+# TODO: Fix things so that the 'fast/slow' thing works
